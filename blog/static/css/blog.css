@@ -1,6 +1,6 @@
 h1 a, h2 a {
     color: #ffffff;
-    font-family: 'Roboto';
+    font-family: 'Lato';
 }
 
 .page-header {
@@ -20,7 +20,7 @@ h1 a, h2 a {
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Roboto', cursive;
+    font-family: 'Lato', cursive;
 }
 
 .date {
@@ -36,7 +36,7 @@ h1, h2, h3, h4 {
 }
 
 .top-menu, .top-menu:hover, .top-menu:visited {
-    color: #ffffff;
+    color: #000000;
     float: right;
     font-size: 26pt;
     margin-right: 20px;
@@ -52,6 +52,37 @@ h1, h2, h3, h4 {
 
 .card-deck {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: .5rem;
+}
+
+.btn-gradient {
+    background-image: linear-gradient(-225deg, #7DE2FC 0%, #B9B6E5 100%);
+    border-color: white;
+    color: white;
+}
+
+.btn-gradient:hover, .btn-gradient:focus, .btn-gradient:active, .btn-gradient.active, .open>.dropdown-toggle.btn-gradient {
+    border-color: black;
+    color: black;
+}
+
+.card {
+    border-color: transparent;
+    border-radius:1rem;
+}
+
+.card-footer {
+    padding: .75rem 1.25rem;
+    background-color: transparent;
+    border-top: transparent;
+}
+
+body {
+    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+    font-family:'Lato';
+}
+
+.bg-gradient {
+    background-image: linear-gradient(-225deg, #7DE2FC 0%, #B9B6E5 100%);
 }
