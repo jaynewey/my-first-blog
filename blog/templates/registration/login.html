@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+    <div class="col-sm-4 mx-auto">
+            <div class="card mx-auto mb-4 shadow animate__animated animate__pulse animate__faster">
+        <div class="card-body text-center">
+            <form class="form-signin" method="post">
+              {% csrf_token %}
+              <span style="font-size:4rem" class="fa fa-user-circle mb-4"></span>
+              <h1 class="h3 mb-4 font-weight-normal text-center">Login</h1>
+              <label for="id_username" class="sr-only">Username</label>
+              <input type="username" name="username" id="id_username" class="form-control mb-2" placeholder="Username" required="" autofocus="">
+              <label for="inputPassword" class="sr-only">Password</label>
+              <input type="password" name="password" id="id_password" class="form-control mb-4" placeholder="Password" required="">
+              <button class="btn btn-lg btn-gradient btn-block" type="submit">Login</button>
+            </form>
+        </div>
+        <div class="card-footer">
+            <hr class="solid">
+            <small class="text-muted">Or go <a href="#" onclick="history.back(-1)">back</a></small>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}
