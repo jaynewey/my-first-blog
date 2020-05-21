@@ -117,3 +117,14 @@ body {
     padding: 15px;
     margin: 0 auto;
 }
+
+.social {
+    font-size: 24px;
+    color:#212529;
+    padding: 5px;
+    transition: opacity 0.3s ease;
+}
+
+.social:hover, .social:focus, .social:active, .social.active {
+    opacity:50%;
+}

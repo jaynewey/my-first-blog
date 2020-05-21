@@ -28,8 +28,8 @@
                       </div>
         {% endfor %}
     {% if user.is_authenticated %}
-    <div class="container">
-        <footer class="footer fixed-bottom"><a href="{% url 'post_new' %}" class="btn btn-fab btn-gradient shadow-lg">+</a></footer>
+    <div style="pointer-events:none" class="container">
+        <footer class="footer fixed-bottom"><a style="pointer-events:auto" href="{% url 'post_new' %}" class="btn btn-fab btn-gradient shadow-lg">+</a></footer>
     </div>
     {% endif %}
 </div>
