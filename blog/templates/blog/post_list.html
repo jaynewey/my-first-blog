@@ -17,7 +17,7 @@
                           </div>
                           <div class="mb-1 text-muted">{{ post.created_date }}</div>
                           <div class="mb-1 text-muted">by {{ post.author }}</div>
-                          <div class="card-text d-inline-block">{{ post.text|linebreaksbr|truncatechars:100 }}</div>
+                          <div class="card-text d-inline-block">{{ post.description|default_if_none:"This post has no description." }}</div>
                           
                         </div>
                         <div class="card-footer">

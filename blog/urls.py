@@ -1,6 +1,7 @@
 from django.contrib import admin
-from django.urls import path, include 
+from django.urls import path, include
 from . import views
+
 
 urlpatterns = [
     path('', views.post_list, name='post_list'),
@@ -10,4 +11,11 @@ urlpatterns = [
 
     path('accounts/', include('django.contrib.auth.urls')),
 
+]
+
+from django.conf.urls import url, include
+from markdownx import urls as markdownx
+
+urlpatterns += [
+    url(r'^markdownx/', include(markdownx))
 ]

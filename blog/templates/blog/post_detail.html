@@ -20,7 +20,7 @@
                     </div>
                 {% endif %}
                 <div class="mb-1 text-muted">by {{ post.author }}</div>
-                <p>{{ post.text|linebreaksbr }}</p>
+                <p>{{ post.formatted_markdown|safe }}</p>
             </div>
         </div>
     </div>
