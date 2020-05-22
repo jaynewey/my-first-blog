@@ -10,7 +10,7 @@
         </p>
         <p>
             <label for="id_title">Description:</label>
-            <input class="form-control" type="text" name="description" value="{{ form.description.value|default_if_none:"" }}" required="" id="id_description" maxlength="150">
+            <input class="form-control" type="text" name="description" value="{{ form.description.value|default_if_none:"" }}" id="id_description" maxlength="150">
         </p>
         <p>
             <label for="id_text">Text:</label>
@@ -18,7 +18,7 @@
         </p>
         <p>
         <label for="id_title">Tags:</label>
-            <input class="form-control" type="text" name="tags" value="{{ form.tags.value|default_if_none:"" }}" required="" id="id_title" maxlength="200">
+            <input class="form-control" type="text" name="tags" value="{{ form.tags.value|default_if_none:"" }}" id="id_tags" maxlength="200">
         </p>
         <button type="submit" class="btn btn-gradient">Save</button>
     </form>

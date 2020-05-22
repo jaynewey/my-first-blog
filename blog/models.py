@@ -10,7 +10,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=150, blank=True, null=True)
     text = MarkdownxField()
-    tags = models.CharField(max_length=200)
+    tags = models.CharField(max_length=50, blank=True, null=True)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
@@ -22,7 +22,10 @@ class Post(models.Model):
         return self.title
     
     def tags_as_list(self):
-        return self.tags.split(',')
+        if self.tags is not None:
+            return self.tags.split(',')
+        else:
+            return []
     
     def formatted_markdown(self):
         return markdownify(self.text)
