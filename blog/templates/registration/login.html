@@ -2,8 +2,8 @@
 
 {% block content %}
 
-    <div class="col-sm-4 mx-auto">
-            <div class="card mx-auto mb-4 shadow animate__animated animate__pulse animate__faster">
+<div class="col-sm-4 mx-auto">
+    <div class="card mx-auto mb-4 shadow animate__animated animate__pulse">
         <div class="card-body text-center">
             <span style="font-size:4rem" class="fa fa-user-circle mb-4"></span>
               {% if user.is_authenticated %}
@@ -27,6 +27,7 @@
             <small class="text-muted">Go back to <a href="/">home</a></small>
         </div>
     </div>
-    </div>
+</div>
+
 
 {% endblock %}
