@@ -8,14 +8,14 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-        <link href='//fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Lato|Roboto+Mono&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
-    <body class="d-flex flex-column min-vh-100">
+    <body class="container mt-5 d-flex flex-column min-vh-100">
         <div class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="/">♠ Jay Newey</a>
+            <a class="navbar-brand px-1 py-0" href="/">Jay Newey</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="fa fa-bars"></span>
   </button>
@@ -37,12 +37,11 @@
                 </ul>
             </div>
         </div>
-        <div class="container wrapper flex-grow-1 overflow-hidden">
+        <div class="container wrapper flex-grow-1 overflow-hidden  animate__animated animate__fadeIn">
             <hr class="solid">
             {% block content %}
             {% endblock %}
         </div>
-        <hr class="solid">
         <footer class="py-5 text-center">
             <div class="container">
                 <p class="m-0 text-center">Website by Jay Newey</p>
