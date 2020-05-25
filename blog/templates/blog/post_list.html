@@ -2,9 +2,9 @@
 
 {% block content %}
 <h1 class="my-4">All posts</h1>
-<div class="card-columns animate__animated animate__fadeInUp">
+<div class="card-columns">
         {% for post in posts %}
-                <div class="card mb-4 shadow">
+                <div class="card mb-4 shadow animate__animated animate__fadeInUp">
                         <div class="card-body">
                                 <h5 class="card-title">{{ post.title }}
                                     {% if user.is_authenticated %}
@@ -27,10 +27,9 @@
                               </div>
                       </div>
         {% endfor %}
-    {% if user.is_authenticated %}
-    <div style="pointer-events:none" class="container">
-        <footer class="footer fixed-bottom"><a style="pointer-events:auto" href="{% url 'post_new' %}" class="btn btn-fab btn-gradient shadow-lg">+</a></footer>
-    </div>
-    {% endif %}
 </div>
+    {% if user.is_authenticated %}
+        <footer class="footer fixed-bottom"><a href="{% url 'post_new' %}" class="btn btn-fab btn-gradient shadow-lg">+</a></footer>
+
+    {% endif %}
 {% endblock %}
