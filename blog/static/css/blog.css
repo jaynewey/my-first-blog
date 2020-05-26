@@ -15,12 +15,12 @@ h1 a, h2 a {
     text-decoration: none;
 }
 
-.navbar-brand {
+.navbar-highlight {
     font-family: 'Roboto Mono', monospace;
     transition: 0.3s ease;
 }
 
-.navbar-brand:hover {
+.navbar-highlight:hover, .navbar-highlight.active {
     color: white !important;
     background-color: black;
 }

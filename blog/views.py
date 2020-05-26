@@ -37,3 +37,13 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+import requests
+from bs4 import BeautifulSoup
+
+def about(request):
+    #url = 'https://www.linkedin.com/in/jay-newey-369959195/'
+    #html = requests.get(url).text
+    #soup = BeautifulSoup(html, "html.parser")
+    profile_image = "https://avatars2.githubusercontent.com/u/65413190?s=460&v=4"
+    return render(request, 'blog/about.html', {'profile_image': profile_image})
