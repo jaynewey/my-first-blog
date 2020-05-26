@@ -196,6 +196,11 @@ body {
     border-bottom-left-radius: 0;
 }
 
+.about-icon {
+    width: 1.5em;
+    height: 1.5em;
+}
+
 .transition-fade {
     transition: 0.5s;
     opacity: 1;
