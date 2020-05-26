@@ -40,7 +40,7 @@
         <footer class="py-5 text-center">
             <div class="container">
                 <p class="m-0 text-center">Website by Jay Newey</p>
-                <a href="https://github.com/jaynewey" target="_blank"><span class="fab fa-github social"></span></a>
+                <a href="https://github.com/jaynewey" target="_blank"><i class="fab fa-github social"></i></a>
                 <a href="https://www.linkedin.com/in/jay-newey-369959195/" target="_blank"><i class="fab fa-linkedin social"></i></a>
             </div>
         </footer>
@@ -50,7 +50,6 @@
     <script>
         function updateActive() {
             $('.navbar-nav .nav-link').removeClass('active');
-            console.log('div[id="navbarNavDropdown"] a[href^="/' + location.pathname.split("/")[1] + '"]')
             $('div[id="navbarNavDropdown"] a[href="/' + location.pathname.split("/")[1] + '"]').addClass('active');
         };
         document.addEventListener('DOMContentLoaded',function() {updateActive()});
