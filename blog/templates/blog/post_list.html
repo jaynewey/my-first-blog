@@ -1,7 +1,9 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<h1 class="my-4">All posts</h1>
+<form action="" autocomplete="off" method="GET">
+    <input value="{{request.GET.q}}" name="q" id="search" type="text" class="my-4 header-input w-100" placeholder="All posts" autofocus>
+</form>
 <div class="card-columns transition-slide">
         {% for post in posts %}
                 <a href="{% url 'post_detail' pk=post.pk %}" class="card mb-4 text-dark text-decoration-none">
@@ -25,6 +27,12 @@
 </div>
     {% if user.is_authenticated %}
         <footer style="pointer-events:none;" class="footer fixed-bottom"><a style="pointer-events:auto;" href="{% url 'post_new' %}" class="btn btn-fab btn-gradient shadow-lg">+</a></footer>
-
     {% endif %}
+<script>
+    function activateSearch() {
+        document.getElementById("search").focus();
+    };
+    document.addEventListener("swup:contentReplaced",function() {activateSearch()});
+    document.addEventListener("keypress", function() {activateSearch()})
+</script>
 {% endblock %}
