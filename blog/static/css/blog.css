@@ -70,6 +70,20 @@ h1, h2, h3, h4 {
     opacity: 50%;
 }
 
+.btn-inside {
+    bottom: 35%;
+    right: 0;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    transition: 0.3s ease;
+    opacity: 0;
+}
+
+.header-input:focus + .btn-inside {
+    opacity: 1;
+}
+
 .date {
     color: #828282;
 }

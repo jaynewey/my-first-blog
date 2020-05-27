@@ -1,8 +1,11 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<form action="" autocomplete="off" method="GET">
-    <input value="{{request.GET.q}}" name="q" id="search" type="text" class="my-4 header-input w-100" placeholder="All posts" autofocus>
+<form data-swup-form action="" autocomplete="off" method="GET">
+    <div class="input-group w-100">
+        <input value="{{request.GET.q}}" name="q" id="search" type="text" class="my-4 w-100 header-input" placeholder="All posts" autofocus onfocus="this.setSelectionRange(this.value.length,this.value.length);">
+        <button class="btn-inside btn-gradient" type="submit">Go</button>
+    </div>
 </form>
 <div class="card-columns transition-slide">
         {% for post in posts %}
