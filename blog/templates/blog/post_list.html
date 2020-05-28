@@ -7,7 +7,9 @@
         <button class="btn-inside btn-gradient" type="submit">Go</button>
     </div>
 </form>
-<div class="card-columns transition-slide">
+
+{% if posts %}
+    <div class="card-columns transition-slide">
         {% for post in posts %}
                 <a href="{% url 'post_detail' pk=post.pk %}" class="card mb-4 text-dark text-decoration-none">
                         <div class="card-body">
@@ -27,7 +29,11 @@
                               </div>
                       </a>
         {% endfor %}
-</div>
+    </div>
+{% else %}
+    <p>Sorry, we couldn't find any posts matching "{{request.GET.q}}".</p>
+{% endif %}
+
     {% if user.is_authenticated %}
         <footer style="pointer-events:none;" class="footer fixed-bottom"><a style="pointer-events:auto;" href="{% url 'post_new' %}" class="btn btn-fab btn-gradient shadow-lg">+</a></footer>
     {% endif %}
