@@ -5,4 +5,4 @@
 myvenv
 db.sqlite3
 .DS_Store
-static/tokens.json
+**/tokens.json
