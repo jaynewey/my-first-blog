@@ -47,9 +47,11 @@ def post_edit(request, pk):
 def project_list(request):
     from github import Github
     import json
+    from django.contrib.staticfiles.finders import find
+
     search = request.GET.get('q')
     projects = []
-    with open("blog/static/tokens.json") as tokens:
+    with open(find("tokens.json")) as tokens:
         g = Github(json.load(tokens)["github"])
         projects = g.get_user().get_repos()
     return render(request, 'blog/project_list.html', {'projects': projects})
