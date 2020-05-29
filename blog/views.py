@@ -46,9 +46,12 @@ def post_edit(request, pk):
 
 def project_list(request):
     from github import Github
+    import json
     search = request.GET.get('q')
-    g = Github("f94990cedc6c2732893436ab62779684fdbbab3e")
-    projects = g.get_user().get_repos()
+    projects = []
+    with open("static/tokens.json") as tokens:
+        g = Github(json.load(tokens)["github"])
+        projects = g.get_user().get_repos()
     return render(request, 'blog/project_list.html', {'projects': projects})
 
 def about(request):
