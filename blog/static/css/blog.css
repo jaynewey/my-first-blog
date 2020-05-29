@@ -40,33 +40,36 @@ h1, h2, h3, h4 {
     font-family: 'Roboto Mono', monospace;
 }
 
-.header-input {
+.heading-input {
     display: block;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
     font-family: 'Roboto Mono', monospace;
     font-size: 2.5rem;
     font-weight: 500;
     line-height: 1.2;
     border-width: 0;
     color: black;
-    background-image: linear-gradient(to right, lightgray 0%, lightgray 100%);;
+    background-image: linear-gradient(to right, lightgray 0%, lightgray 100%);
     background-position: 0 100% !important;
     background-repeat: no-repeat;
     background-size: 0 2px;
     transition: 0.3s ease;
-    padding-bottom: 6px;
 }
 
-.header-input:focus {
+.heading-input:focus {
     outline: none;
     background-size: 100% 2px;
 }
 
-.header-input::placeholder {
+.heading-input::placeholder {
     color:black;
     transition: 300ms ease-in-out;
 }
 
-.header-input:focus::placeholder {
+.heading-input:focus::placeholder {
     opacity: 30%;
 }
 
@@ -90,7 +93,7 @@ h1, h2, h3, h4 {
     outline: none;
 }
 
-.header-input:focus + .btn-inside {
+.heading-input:focus + .btn-inside {
     opacity: 1;
 }
 
@@ -196,8 +199,9 @@ body {
     color: white;
     text-transform: uppercase;
     background-image: var(--main-gradient);
-    padding:0px 0.5ch;
+    padding:0px 1ch;
     border-radius:1rem;
+    text-decoration: none;
 }
 
 .form-signin {
