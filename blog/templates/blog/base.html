@@ -21,10 +21,13 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav my-2 ml-auto">
                     <li class="nav-item my-2 mx-2">
-                        <a class="nav-link navbar-highlight px-1 py-0" href="/">Blog</a>
+                        <a class="nav-link navbar-highlight px-1 py-0" href="{% url 'about' %}">About</a>
                     </li>
                     <li class="nav-item my-2 mx-2">
-                        <a class="nav-link navbar-highlight px-1 py-0" href="{% url 'about' %}">About</a>
+                        <a class="nav-link navbar-highlight px-1 py-0" href="{% url 'project_list' %}">Projects</a>
+                    </li>
+                    <li class="nav-item my-2 mx-2">
+                        <a class="nav-link navbar-highlight px-1 py-0" href="/">Blog</a>
                     </li>
                 </ul>
             </div>

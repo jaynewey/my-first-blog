@@ -44,6 +44,12 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
+def project_list(request):
+    from github import Github
+    search = request.GET.get('q')
+    g = Github("fd42b5789c6806b8bc1e2976b47f75cd1634b33e")
+    projects = g.get_user().get_repos()
+    return render(request, 'blog/project_list.html', {'projects': projects})
 
 def about(request):
     return render(request, 'blog/about.html')

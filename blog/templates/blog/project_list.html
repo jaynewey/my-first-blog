@@ -1,0 +1,46 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<form data-swup-form action="" autocomplete="off" method="GET">
+    <div class="input-group w-100 d-block">
+        <input value="{{request.GET.q}}" name="q" id="search" type="text" class="my-4 w-100 heading-input" placeholder="All projects" autofocus onfocus="this.setSelectionRange(this.value.length,this.value.length);">
+        <button class="btn-inside btn-transparent" type="submit"><i class="fas fa-angle-double-right"></i></button>
+    </div>
+</form>
+
+{% if projects %}
+    <div class="card-columns transition-slide pt-2">
+        {% for project in projects %}
+                <a target="_blank" href={{project.html_url}} class="card mb-4 text-dark text-decoration-none">
+                        <div class="card-body">
+                                <h5 class="card-title">{{ project.name }}</h5>
+                          <div>
+                              <span class="post-tag">{{project.language}}</span>
+                          </div>
+                          <div class="mb-1 text-muted">{{ project.created_at }}</div>
+                          <div class="mb-1 text-muted">by {{ project.owner.login }}</div>
+                          <div class="card-text d-inline-block">{{ project.description|default_if_none:"This post has no description." }}</div>
+                          
+                        </div>
+                        <div class="card-footer">
+                                <hr class="solid">
+                                <small class="text-muted">Last updated: {{ project.updated_at }}</small>
+                              </div>
+                      </a>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>Sorry, we couldn't find any posts matching "{{request.GET.q}}".</p>
+{% endif %}
+
+    {% if user.is_authenticated %}
+        <footer style="pointer-events:none;" class="footer fixed-bottom"><a style="pointer-events:auto;" href="{% url 'post_new' %}" class="btn btn-fab btn-gradient shadow-lg">+</a></footer>
+    {% endif %}
+<script>
+    function activateSearch() {
+        document.getElementById("search").focus();
+    };
+    document.addEventListener("swup:contentReplaced",function() {activateSearch()});
+    document.addEventListener("keypress", function() {activateSearch()})
+</script>
+{% endblock %}
