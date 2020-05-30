@@ -19,6 +19,10 @@ h1 a, h2 a {
     text-decoration: none;
 }
 
+.navbar {
+    background-color:rgba(255, 255, 255, 0.8);
+}
+
 .navbar-highlight {
     font-family: 'Roboto Mono', monospace;
     transition: 0.3s ease;
@@ -37,7 +41,11 @@ h1 a, h2 a {
 }
 
 .gradient-map {
-    background-blend-mode: hard-light;
+    background-color: #64ffda;
+    background: var(--main-gradient);
+    mix-blend-mode: screen;
+    background-size: cover;
+    filter: grayscale(100%) contrast(1);
 }
 
 h1, h2, h3, h4 {
