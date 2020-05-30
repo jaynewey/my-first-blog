@@ -54,6 +54,7 @@ def project_list(request):
     with open(find("tokens.json")) as tokens:
         g = Github(json.load(tokens)["github"])
         projects = g.get_user().get_repos()
+    tokens.close()
     return render(request, 'blog/project_list.html', {'projects': projects})
 
 def about(request):
