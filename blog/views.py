@@ -44,18 +44,25 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
-def project_list(request):
+def about(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    
+    # github project list
     from github import Github
     import json
     from django.contrib.staticfiles.finders import find
 
-    search = request.GET.get('q')
     projects = []
     with open(find("tokens.json")) as tokens:
         g = Github(json.load(tokens)["github"])
-        projects = g.get_user().get_repos()
+        projects = g.get_user().get_repos(sort="updated")
     tokens.close()
-    return render(request, 'blog/project_list.html', {'projects': projects})
-
-def about(request):
-    return render(request, 'blog/about.html')
+    if projects.totalCount > 2:
+        projects = projects[0:3]
+    
+    # latest blog post list
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    if posts.count() > 2:
+        posts = posts[0:3]
+    
+    return render(request, 'blog/about.html', {'projects':projects, 'posts':posts})

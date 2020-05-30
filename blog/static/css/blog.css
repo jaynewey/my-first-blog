@@ -36,8 +36,34 @@ h1 a, h2 a {
     margin-left: 40px;
 }
 
+.gradient-map {
+    background-blend-mode: hard-light;
+}
+
 h1, h2, h3, h4 {
     font-family: 'Roboto Mono', monospace;
+}
+
+@media (min-width: 768px) {
+    .post-about {
+        padding-left: 4ch;
+        border-left: 1px solid lightgray;
+    }
+}
+
+@media (max-width: 768px) {
+    .post-about {
+        padding-bottom: 4ch;
+        border-bottom: 1px solid lightgray;
+    }
+}
+
+.post-about {
+    transition: 300ms ease-in-out;
+}
+
+.post-about:hover {
+    transform: translateX(10px);
 }
 
 .heading-input {

@@ -2,31 +2,79 @@
 {% load static %}
 
 {% block content %}
-<h1 class="my-4">About me</h1>
-<div class="row flex-md-row-reverse">
-    <div class="col-sm-4 text-center my-auto">
-        <img src="{% static 'images/profile.png' %}" class="img-fluid rounded-circle w-75">
-    </div>
-    <div class="col-sm-8 my-auto">
-        <p class="mt-4"><span class="intro-bubble">Hello, I'm</span></p>
-        <h2 class="my-2">Jay Newey</h2>
-        <h5 class="mb-4">Computer Science Student at University of Birmingham</h5>
-        <ul class="list-inline">
-            <li><p>
-                <span>
-                    <img class="about-icon" src="https://media-exp1.licdn.com/dms/image/C510BAQEdLkLApRkMcQ/company-logo_100_100/0?e=1598486400&v=beta&t=EIfjaUNZkyxMmanMDezcJQbltKDqmcFkKOzjIY-9xuU">
-                </span>
-                University of Birmingham</p>
-            </li>
-            <li><p>
-                <span>
-                    <img class="about-icon" src="https://media-exp1.licdn.com/dms/image/C4D0BAQG4YAeUoNmg4w/company-logo_100_100/0?e=1598486400&v=beta&t=QFXzSJ0xwiBl3Ybrcdg1rNggx2GQWZQ00umrN8sfhZQ">
-                </span>
-                Vodafone UK</p>
-            </li>
-        </ul>
-        <a href="https://github.com/jaynewey" target="_blank"><i class="fab fa-github social"></i></a>
-        <a href="https://www.linkedin.com/in/jay-newey-369959195/" target="_blank"><i class="fab fa-linkedin social"></i></a>
+<div class="container pb-5">
+    <h1 class="my-4">About me</h1>
+    <div class="row flex-md-row-reverse">
+        <div class="col-sm-4 text-center my-auto">
+            <img src="{% static 'images/profile.png' %}" class="img-fluid rounded-circle w-75">
+        </div>
+        <div class="col-sm-8 my-auto">
+            <p class="mt-4"><span class="intro-bubble">Hello, I'm</span></p>
+            <h2 class="my-2">Jay Newey</h2>
+            <h5 class="mb-4">Computer Science Student at University of Birmingham</h5>
+            <ul class="list-inline">
+                <li><p>
+                    <span>
+                        <img class="about-icon" src="https://media-exp1.licdn.com/dms/image/C510BAQEdLkLApRkMcQ/company-logo_100_100/0?e=1598486400&v=beta&t=EIfjaUNZkyxMmanMDezcJQbltKDqmcFkKOzjIY-9xuU">
+                    </span>
+                    University of Birmingham</p>
+                </li>
+                <li><p>
+                    <span>
+                        <img class="about-icon" src="https://media-exp1.licdn.com/dms/image/C4D0BAQG4YAeUoNmg4w/company-logo_100_100/0?e=1598486400&v=beta&t=QFXzSJ0xwiBl3Ybrcdg1rNggx2GQWZQ00umrN8sfhZQ">
+                    </span>
+                    Vodafone UK</p>
+                </li>
+            </ul>
+            <a href="https://github.com/jaynewey" target="_blank"><i class="fab fa-github social"></i></a>
+            <a href="https://www.linkedin.com/in/jay-newey-369959195/" target="_blank"><i class="fab fa-linkedin social"></i></a>
+        </div>
     </div>
 </div>
+{% if projects %}
+<div class="container py-5">
+<h1 class="my-4 heading-line">Projects</h1>
+    <p class="mb-4">Lastest projects from GitHub</p>
+    <div class="card-deck">
+        {% for project in projects %}
+        <a target="_blank" href={{project.html_url}} class="card mb-4 text-dark text-decoration-none">
+                        <div class="card-body">
+                                <h5 class="card-title">{{ project.name }}</h5>
+                          <div>
+                              <span class="post-tag">{{project.language}}</span>
+                          </div>
+                          <div class="mb-1 text-muted">{{ project.created_at }}</div>
+                          <div class="card-text d-inline-block">{{ project.description|default_if_none:"This post has no description." }}</div>
+                          
+                        </div>
+                        <div class="card-footer">
+                                <hr class="solid">
+                                <small class="text-muted">Last updated: {{ project.updated_at }}</small>
+                              </div>
+                      </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% if posts %}
+<div class="container py-5">
+    <h1 class="my-4">Blog</h1>
+    <p class="mb-4">Latest posts from the blog</p>
+    {% for post in posts %}
+    <a href="{% url 'post_detail' pk=post.pk %}" class="text-dark text-decoration-none">
+    <div class="post-about mb-4">
+        <h2>{{post.title}}</h2>
+        <div>{% for tag in post.tags_as_list %}
+                <span class="post-tag">{{tag}}</span>
+             {% endfor %}
+        </div>
+        <div class="mb-1 text-muted">{{ post.created_date }}</div>
+        <p>{{post.description|default_if_none:"This post has no description." }}</p>
+        <small class="text-muted">Last updated: {{ post.published_date }}</small>
+    </div>
+    </a>
+    {% endfor %}
+</div>
+{% endif %}
+
 {% endblock %}
