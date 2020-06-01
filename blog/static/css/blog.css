@@ -57,6 +57,10 @@ h1, h2, h3, h4 {
         padding-left: 4ch;
         border-left: 1px solid lightgray;
     }
+    
+    .post-about:hover {
+    transform: translateX(10px);
+    }
 }
 
 @media (max-width: 768px) {
@@ -64,14 +68,14 @@ h1, h2, h3, h4 {
         padding-bottom: 4ch;
         border-bottom: 1px solid lightgray;
     }
+    
+    .post-about:hover {
+    transform: translateY(-10px);
+    }
 }
 
 .post-about {
     transition: 300ms ease-in-out;
-}
-
-.post-about:hover {
-    transform: translateX(10px);
 }
 
 .heading-input {
