@@ -11,6 +11,8 @@
         <link href='//fonts.googleapis.com/css?family=Lato|Roboto+Mono&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     </head>
     <body class="container mt-5 d-flex flex-column">
         <div class="navbar sticky-top navbar-expand-sm navbar-light">
@@ -57,5 +59,11 @@
         };
         document.addEventListener('DOMContentLoaded',function() {updateActive()});
         document.addEventListener("swup:willReplaceContent",function() {updateActive()});
+        document.addEventListener("swup:willReplaceContent",function() {AOS.refresh()});
     </script>
+    
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>    
+    <script>
+    AOS.init();
+  </script>
 </html>
